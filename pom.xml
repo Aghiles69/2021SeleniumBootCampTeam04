@@ -15,7 +15,7 @@
         <module>com.expedia</module>
         <module>com.espn</module>
         <module>com.bankofamerica</module>
-        <module>com.version</module>
+
         <module>com.cbssports</module>
         <module>com.mercedesbenzusa</module>
         <module>com.trulia</module>
@@ -24,6 +24,7 @@
         <module>com.chasebanking</module>
         <module>com.atandt</module>
         <module>base</module>
+        <module>com.verizon</module>
     </modules>
 
     <properties>
@@ -33,11 +34,62 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
             <dependency>
                 <groupId>io.github.bonigarcia</groupId>
                 <artifactId>webdrivermanager</artifactId>
                 <version>3.8.1</version>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-java</artifactId>
+                <version>3.141.59</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+            <dependency>
+                <groupId>org.testng</groupId>
+                <artifactId>testng</artifactId>
+                <version>6.14.3</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>8.0.21</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>4.1.2</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>4.1.2</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+            <dependency>
+                <groupId>com.aventstack</groupId>
+                <artifactId>extentreports</artifactId>
+                <version>5.0.8</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.relevantcodes/extentreports -->
+            <dependency>
+                <groupId>com.relevantcodes</groupId>
+                <artifactId>extentreports</artifactId>
+                <version>2.41.2</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

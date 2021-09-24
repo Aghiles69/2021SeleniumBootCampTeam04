@@ -13,10 +13,10 @@
         <module name="com.expedia" />
         <module name="com.cbssports" />
         <module name="com.atandt" />
+        <module name="com.verizon" />
         <module name="com.chasebanking" />
         <module name="com.espn" />
         <module name="com.trulia" />
-        <module name="com.version" />
         <module name="com.ebay" />
         <module name="com.redfin" />
         <module name="base" />
@@ -25,6 +25,7 @@
     <bytecodeTargetLevel>
       <module name="bmwusa" target="11" />
       <module name="com.at&amp;t" target="11" />
+      <module name="com.verzion" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

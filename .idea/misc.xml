@@ -10,6 +10,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/com.atandt/pom.xml" />
+        <option value="$PROJECT_DIR$/com.version/pom.xml" />
       </set>
     </option>
   </component>
