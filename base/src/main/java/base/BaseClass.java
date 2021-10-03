@@ -18,9 +18,11 @@ import reporting.ExtentManager;
 import reporting.ExtentTestManager;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.lang.reflect.Method;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Properties;
 
 public class BaseClass {
 
@@ -28,23 +30,47 @@ public class BaseClass {
     public static WebDriverWait driverWait;
     public static ExtentReports extent;
     public static DataReader dataReader = new DataReader();
+    public Properties properties = new Properties();
+//    private String absPath = System.getProperty("user.dir");
+//    private String secretProprelPath = "/src/main/resources/secret.properties";
+//    private String proPath = absPath + secretProprelPath;
+
 
     @BeforeSuite (alwaysRun = true)
-    public void beforeSuiteExtentSetup(ITestContext context) {
-        ExtentManager.setOutputDirectory(context);
-        extent = ExtentManager.getInstance();
+    public void setUP(){
+//        try{
+//            properties = new Properties();
+//            FileInputStream fis = new FileInputStream("sourcetoproperties file00");
+//            properties.load(fis);
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        }
+        try {
+            dataReader = new DataReader();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+//        try {
+//            database = new MySQLDataReader();
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        }
     }
+//    public void beforeSuiteExtentSetup(ITestContext context) {
+//        ExtentManager.setOutputDirectory(context);
+//        extent = ExtentManager.getInstance();
+//    }
 
-    @BeforeMethod (alwaysRun = true)
-    public static void beforeEachMethodExtentInit(Method method) {
-        String className = method.getDeclaringClass().getSimpleName();
-        String methodName = method.getName();
-
-        ExtentTestManager.startTest(methodName);
-        ExtentTestManager.getTest().assignCategory(className);
-
-        System.out.println("\n\t***" + methodName + "***\n");
-    }
+//    @BeforeMethod (alwaysRun = true)
+//    public static void beforeEachMethodExtentInit(Method method) {
+//        String className = method.getDeclaringClass().getSimpleName();
+//        String methodName = method.getName();
+//
+//        ExtentTestManager.startTest(methodName);
+//        ExtentTestManager.getTest().assignCategory(className);
+//
+//        System.out.println("\n\t***" + methodName + "***\n");
+//    }
 
     @Parameters ({"browser", "url"})
     @BeforeMethod (alwaysRun = true)
@@ -57,28 +83,28 @@ public class BaseClass {
         driver.manage().window().maximize();
     }
 
-    @AfterMethod
-    public void extentFlush(ITestResult result) {
-        ExtentTestManager.getTest().getTest().setStartedTime(getTime(result.getStartMillis()));
-        ExtentTestManager.getTest().getTest().setEndedTime(getTime(result.getEndMillis()));
-
-        for (String group : result.getMethod().getGroups()) {
-            ExtentTestManager.getTest().assignCategory(group);
-        }
-
-        if (result.getStatus() == ITestResult.FAILURE) {
-            ExtentTestManager.getTest().log(LogStatus.FAIL, "TEST CASE FAILED: " + result.getName());
-            ExtentTestManager.getTest().log(LogStatus.FAIL, result.getThrowable());
-            captureScreenshot(driver, result.getName());
-        } else if (result.getStatus() == ITestResult.SKIP) {
-            ExtentTestManager.getTest().log(LogStatus.SKIP, "TEST CASE SKIPPED: " + result.getName());
-        } else if (result.getStatus() == ITestResult.SUCCESS) {
-            ExtentTestManager.getTest().log(LogStatus.PASS, "TEST CASE PASSED: " + result.getName());
-        }
-
-        ExtentTestManager.endTest();
-        extent.flush();
-    }
+//    @AfterMethod
+//    public void extentFlush(ITestResult result) {
+//        ExtentTestManager.getTest().getTest().setStartedTime(getTime(result.getStartMillis()));
+//        ExtentTestManager.getTest().getTest().setEndedTime(getTime(result.getEndMillis()));
+//
+//        for (String group : result.getMethod().getGroups()) {
+//            ExtentTestManager.getTest().assignCategory(group);
+//        }
+//
+//        if (result.getStatus() == ITestResult.FAILURE) {
+//            ExtentTestManager.getTest().log(LogStatus.FAIL, "TEST CASE FAILED: " + result.getName());
+//            ExtentTestManager.getTest().log(LogStatus.FAIL, result.getThrowable());
+//            captureScreenshot(driver, result.getName());
+//        } else if (result.getStatus() == ITestResult.SKIP) {
+//            ExtentTestManager.getTest().log(LogStatus.SKIP, "TEST CASE SKIPPED: " + result.getName());
+//        } else if (result.getStatus() == ITestResult.SUCCESS) {
+//            ExtentTestManager.getTest().log(LogStatus.PASS, "TEST CASE PASSED: " + result.getName());
+//        }
+//
+//        ExtentTestManager.endTest();
+//        extent.flush();
+//    }
 
     @AfterMethod
     public void driverClose() {
@@ -115,19 +141,19 @@ public class BaseClass {
         return calendar.getTime();
     }
 
-    private static void captureScreenshot(WebDriver driver, String testName) {
-        String fileName = testName + ".png";
-        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        File newScreenshotFile = new File(System.getProperty("user.dir") + File.separator + "src" + File.separator +
-                "main" + File.separator + "java" + File.separator + "reporting" + File.separator + fileName);
-
-        try {
-            FileHandler.copy(screenshot, newScreenshotFile);
-            System.out.println("SCREENSHOT TAKEN");
-        } catch (Exception e) {
-            System.out.println("ERROR TAKING SCREENSHOT: " + e.getMessage());
-        }
-    }
+//    private static void captureScreenshot(WebDriver driver, String testName) {
+//        String fileName = testName + ".png";
+//        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//        File newScreenshotFile = new File(System.getProperty("user.dir") + File.separator + "src" + File.separator +
+//                "main" + File.separator + "java" + File.separator + "reporting" + File.separator + fileName);
+//
+//        try {
+//            FileHandler.copy(screenshot, newScreenshotFile);
+//            System.out.println("SCREENSHOT TAKEN");
+//        } catch (Exception e) {
+//            System.out.println("ERROR TAKING SCREENSHOT: " + e.getMessage());
+//        }
+//    }
 
     /*
     Selenium Helper Methods

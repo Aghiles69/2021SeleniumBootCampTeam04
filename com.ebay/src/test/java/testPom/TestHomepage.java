@@ -13,7 +13,7 @@ public class TestHomepage extends TestBase {
     public void testDoSearch() throws Exception {
         homepage = getHomepage();
 
-        homepage.doSearch("Playstation 5", "Video Games & Consoles");
+        homepage.doSearch("Playstation 5");
 //        String expTitle = "playstation 5 in Video Games and Consoles | eBay";
 
 //        waitForElementToBeVisible(homepage.searchResultPageElement);

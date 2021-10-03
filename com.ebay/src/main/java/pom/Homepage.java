@@ -14,8 +14,8 @@
         @FindBy (xpath = "//input[@type='text']")
         public WebElement searchInput;
 
-        @FindBy (css = "select#gh-cat")
-        public WebElement categoryDropdown;
+//        @FindBy (css = "select#gh-cat")
+//        public WebElement categoryDropdown;
 
         @FindBy (css = "input#gh-btn")
         public WebElement searchButton;
@@ -24,9 +24,9 @@
         public WebElement searchResultPageElement;
 
 
-        public void doSearch(String searchTerm, String category) {
+        public void doSearch(String searchTerm) {
             sendKeysToSearchInput(searchTerm);
-            selectSearchCategory(category);
+//            selectSearchCategory(category);
             clickSearchButton();
         }
 
@@ -34,9 +34,9 @@
             clickJScript(searchButton);
         }
 
-        private void selectSearchCategory(String category) {
-            dropdownSelectByVisibleText(categoryDropdown, category);
-        }
+//        private void selectSearchCategory(String category) {
+//            dropdownSelectByVisibleText(categoryDropdown, category);
+//        }
 
         private void sendKeysToSearchInput(String keys) {
             sendKeysToInput(searchInput, keys);
