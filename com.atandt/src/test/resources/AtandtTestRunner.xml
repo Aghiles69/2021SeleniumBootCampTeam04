@@ -1,18 +1,18 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="Functional" verbose="1" >
-    <test name="ListAnItemToSell" >
+    <test name="Deals" >
         <!--        <groups>-->
         <!--            <run>-->
         <!--                <include name="Regression"/>-->
         <!--            </run>-->
         <!--        </groups>-->
         <classes>
-            <class name="testPom.TestSearchAnItemToSell"/>
+            <class name="testPom.TestDeals"/>
 <!--            <class name="testPom.TestLetsKodeIt"></class>-->
         </classes>
     </test>
 
-    <parameter name="url" value="https://ebay.com"/>
+    <parameter name="url" value="https://www.att.com/"/>
     <parameter name="browserName" value="chrome"/>
 </suite>

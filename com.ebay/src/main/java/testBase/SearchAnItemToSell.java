@@ -1,6 +1,7 @@
-    package pom;
+    package testBase;
 
     import base.BaseClass;
+    import org.jsoup.Connection;
     import org.openqa.selenium.WebElement;
     import org.openqa.selenium.support.FindBy;
     import org.openqa.selenium.support.PageFactory;
@@ -44,14 +45,7 @@
 //        }
 
         private void sendKeysTolistItemInputBox(String keys) {
-            sendKeysToInput(listItemInputBox, keys);
-        }
-        public String getText(WebElement element) {
-            WebElement Text = explicitWait.until(ExpectedConditions.visibilityOf(element));
-            return Text.getText();
+            sendKeysToElement(listItemInputBox, keys);
         }
 
-        public void bypassCaptcha() {
-            driver.get("https://signup.ebay.com/pa/crte?ru=https%3A%2F%2Fwww.ebay.com%2F");
-        }
     }

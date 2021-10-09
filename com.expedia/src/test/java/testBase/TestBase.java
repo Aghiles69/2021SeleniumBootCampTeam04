@@ -1,7 +1,7 @@
 package testBase;
 
 import base.BaseClass;
-import pom.Cars;
+import org.jsoup.Connection;
 
 public class TestBase extends BaseClass {
     public Cars getHomepage(){

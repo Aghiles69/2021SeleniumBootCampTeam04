@@ -1,9 +1,7 @@
 package testPom;
 
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import pom.SearchAnItemToSell;
+import testBase.SearchAnItemToSell;
 import testBase.TestBase;
 
 public class TestSearchAnItemToSell extends TestBase {
