@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static base.BaseClass.driver;
 
 public class Deals extends BaseClass {
 
@@ -13,40 +12,40 @@ public class Deals extends BaseClass {
         PageFactory.initElements(driver,this);
     }
 
-    @FindBy(css ="#z1-tier1Nav>a:nth-child(1)>span")
+    @FindBy(xpath ="//*[@id=\"z1-tier1Nav\"]/a[1]")
     public WebElement dealsButton;
 
-    @FindBy (css = "#carouselRow-col-0>div.uiAlignment.uiAlignment-copy>div>div>span>a")
+    @FindBy (xpath = "//*[@id=\"carouselRow-col-0\"]/div[2]/div/div/span/a")
     public WebElement wirelessButton;
 
-    @FindBy (css = "#HEADBAND00>span>a>span")
+    @FindBy (xpath = "//*[@id=\"HEADBAND00\"]/span/a/span")
     public WebElement exploreWirelessButton;
 
-    @FindBy (xpath = "//*[@id=HERO_PANEL22]/div/div[2]/div/div/span/a")
+    @FindBy (xpath = "////*[@id=\"HERO_PANEL22\"]/div/div[2]/div/div/span/a")
     public WebElement shopNowOnWirelessPage;
 
-    @FindBy (xpath = "//*[@id=__next]/div/div[3]/div/div/div/div/div/div/span")
+    @FindBy (xpath = " //*[@id=\"__next\"]/div/div[3]/div/div/div/div/div/div/span")
     public WebElement textDecorationOnWirelessShopNowPage;
 
-    @FindBy (xpath = "//*[@id=carouselRow-col-1]/div[2]/div/div/span/a")
+    @FindBy (xpath = "//*[@id=\"carouselRow-col-1\"]/div[2]/div/div/span/a")
     public WebElement internetAndTv;
 
-    @FindBy(css = "#RIVER_CARD1story > div > div > h2")
+    @FindBy(xpath = "//*[@id=\"RIVER_CARD1story\"]/div/div/h2")
     public WebElement headingInternetAndTvPage;
 
-    @FindBy(xpath = "//*[@id=MOSAIC-GROUP-3-CTAS-container]/div/a")
+    @FindBy(xpath = "//*[@id=\"MOSAIC-GROUP-3-CTAS-container\"]/div/a")
     public WebElement shopInternet;
 
-    @FindBy(xpath = "//*[@id=HERO_PANEL22]/div/div[1]/div/div/span/a")
+    @FindBy(xpath = "//*[@id=\"HERO_PANEL22\"]/div/div[2]/div/div/span/a")
     public WebElement checkAvailabiityOnInternt;
 
-    @FindBy (xpath = "//*[@id=carouselRow-col-2]/div[2]/div/div/span/a")
+    @FindBy (xpath = "//*[@id=\"carouselRow-col-2\"]/div[2]/div/div/span/a")
     public WebElement accessoriesButton;
 
-    @FindBy(xpath = "//*[@id=__next]/div[2]/div[2]/div[1]/div[1]/div/span")
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[2]/div[1]/div[1]/div/span")
     public WebElement accessoriesPageHeader;
 
-    @FindBy(css = "#searchInputdesktop")
+    @FindBy(xpath = "//*[@id=\"searchInputdesktop\"]")
     public WebElement accessoriesPageSearchBox;
 
     @FindBy(xpath = "//*[@id=__next]/div[2]/div[2]/div[1]/div[4]/div/div[1]/div[1]/div[2]/div[1]/div[1]/div/span")
@@ -67,7 +66,7 @@ public class Deals extends BaseClass {
     @FindBy (css = "#DC-1-container > div.text-center > div")
     public WebElement pageContainer;
 
-    @FindBy (xpath = "//*[@id=storyofferblob-2story]/div/div/div/span/a")
+    @FindBy (xpath = "//*[@id=\"HERO_PANEL22\"]/div/div[1]/div/div/span/a")
     public WebElement checkAvailabilityButton;
 
     @FindBy (css = "#PRODUCT_CARDS5Cta > span > a")
@@ -91,10 +90,10 @@ public class Deals extends BaseClass {
         clickshopInternet();
         clickcheckAvailabiityOnInternt();
     }
-    public void exploreAccessoriePage(){
+    public void exploreAccessoriePage(String searchTerm){
         clickdealsButton();
         clickaccessoriesButton();
-        sendKeysToaccessoriesPageSearchBox("iphone");
+        sendKeysToaccessoriesPageSearchBox(searchTerm);
     }
     public void searchAccessoriesWithFilterON(){
         clickdealsButton();
@@ -113,7 +112,7 @@ public class Deals extends BaseClass {
         clickcheckAvailabilityButton();
     }
     public void exploreShopAllDealPage(){
-        clickdealsButton();
+        clickdealsButton();;
         clickshopAllDealsButton();
         clickfindNearestStore();
     }
@@ -126,7 +125,7 @@ public class Deals extends BaseClass {
     private void clickcheckAvailabiityOnInternt(){clickJScript(checkAvailabiityOnInternt);}
     private void clickaccessoriesButton(){clickJScript(accessoriesButton);}
     private void sendKeysToaccessoriesPageSearchBox(String keys) {
-        sendKeysToInput(accessoriesPageSearchBox, keys);}
+        sendKeysToElement(accessoriesPageSearchBox, keys);}
     private void clickfilterAndSort(){clickJScript(filterAndSort);}
     private void clickpriceLowToHighFilter(){clickJScript(priceLowToHighFilter);}
     private void clickshopNowButton(){clickJScript(shopNowButton);}
@@ -135,18 +134,4 @@ public class Deals extends BaseClass {
     private void clickcheckAvailabilityButton(){clickJScript(checkAvailabilityButton);}
     private void clickshopAllDealsButton(){clickJScript(shopAllDealsButton);}
     private void clickfindNearestStore(){clickJScript(findNearestStore);}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

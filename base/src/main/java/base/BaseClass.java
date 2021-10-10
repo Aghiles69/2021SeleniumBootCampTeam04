@@ -43,8 +43,8 @@ public class BaseClass {
     public ResultSet resultSet = null;
 
     public final String systemPath = System.getProperty("user.dir");
-    public final String PROP_RELATIVE_PATH = "\\src\\main\\resources\\credentials.properties";
-    public final String EXCEL_RELATIVE_PATH = "\\src\\test\\resources\\TestData.xlsx";
+    public final String PROP_RELATIVE_PATH = "/src/main/resources/credentials.properties";
+    public final String EXCEL_RELATIVE_PATH = "/src/test/resources/TestData.xlsx";
     public final String PROP_FILE_PATH = systemPath + PROP_RELATIVE_PATH;
     public final String EXCEL_FILE_PATH = systemPath + EXCEL_RELATIVE_PATH;
 

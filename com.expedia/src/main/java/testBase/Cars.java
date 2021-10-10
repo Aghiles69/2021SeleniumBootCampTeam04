@@ -52,15 +52,16 @@ public class Cars extends BaseClass
         public WebElement searchButton;
 
         public void searchCarsWithoutPickingDateAndTime() {
+            driver.switchTo().alert().dismiss();
             clickcars();
             clickpickUpLocation();
-
             sendKeysTosearchPickUpLocation("New York");
             clickdropOffLocation();
             sendKeysTosearchDropOffLocation("New Jersey");
             clicksearchButton();
         }
         public void searchcarswithDate(){
+            driver.switchTo().alert().dismiss();
             clickcars();
             clickpickUpLocation();
             sendKeysTosearchPickUpLocation("New York");
@@ -72,6 +73,7 @@ public class Cars extends BaseClass
 
         }
         public void searchcarsWithTime(){
+            driver.switchTo().alert().dismiss();
             clickcars();
             clickpickUpLocation();
             sendKeysTosearchPickUpLocation("New York");
@@ -82,6 +84,7 @@ public class Cars extends BaseClass
             clicksearchButton();
         }
         public void searchcarsForAARPMembers(){
+            driver.switchTo().alert().dismiss();
             clickcars();
             clickpickUpLocation();
             sendKeysTosearchPickUpLocation("New York");
@@ -93,6 +96,7 @@ public class Cars extends BaseClass
             clicksearchButton();
         }
         public void searchcarsWithInvalidData(){
+            driver.switchTo().alert().dismiss();
             clickcars();
             clickpickUpLocation();
             sendKeysTosearchPickUpLocation("New York");
@@ -104,6 +108,7 @@ public class Cars extends BaseClass
             clicksearchButton();
         }
         public void pickPrefferedBrand(){
+            driver.switchTo().alert().dismiss();
             clickcars();
             clickpickUpLocation();
             sendKeysTosearchPickUpLocation("New York");
