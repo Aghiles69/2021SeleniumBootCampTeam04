@@ -69,10 +69,29 @@ public class NFL extends BaseClass {
     @FindBy(xpath = "//*[@id=\"PageTitle-header\"]")
     public WebElement nflSchedulePageTitle;
 
+    @FindBy(xpath = "//*[@id=\"cbs-site-nav\"]/div/nav/ul/li[4]/a")
+    public WebElement nflHomePageStandingsPage;
+
+    @FindBy(xpath = "//*[@id=\"PageTitle-header\"]")
+    public WebElement nflStandingPageTitle;
+
+    @FindBy(xpath = "//*[@id=\"cbs-site-nav\"]/div/nav/ul/li[5]/a")
+    public WebElement nflHomePageTeamsPage;
+
+    @FindBy(xpath = "//*[@id=\"PageTitle-header\"]")
+    public WebElement nflTeamsPageTitle;
+
+    @FindBy(xpath = "//*[@id=\"cbs-site-nav\"]/div/nav/ul/li[6]/a")
+    public WebElement nflHomeStatsPage;
+
+    @FindBy(xpath = "//*[@id=\"PageTitle-header\"]")
+    public WebElement nflStatsPageTitle;
+
     public void nflHomePage(){
-        clicknfl();
+        clicknflButtonAndDropDown();
     }
     public void nflGamePage(){
+        clicknflButtonAndDropDown();
         mouseHover(playGameDropDown);
         scrollJS(10);
         waitForElementToBeVisible(footballGameButton);
@@ -142,15 +161,34 @@ public class NFL extends BaseClass {
         clickiframeQuitVideobutton();
     }
     public void nflSchedulePage(){
-        clicknflHomePageScore();
+        mouseHover(playGameDropDown);
         waitForElementToBeVisible(nflHomePageScheduleButton);
         clicknflHomePageScheduleButton();
         scrollJS(1000);
         scrollJS(-500);
         scrollJS(1000);
     }
+    public void nflStandingsPage(){
+        clicknflButtonAndDropDown();
+        try {
+            explicitWait.wait(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        clicknflHomePageStandingsPage();
+    }
+    public void nflTeamsPage() {
+        clicknflButtonAndDropDown();
+        waitForElementToBeVisible(nflHomePageTeamsPage);
+        clicknflHomePageTeamsPage();
+    }
+    public void nflStatsPage() {
+        clicknflButtonAndDropDown();
+        waitForElementToBeVisible(nflHomeStatsPage);
+        clicknflHomeStatsPage();
+    }
 
-    private void clicknfl(){clickJScript(nflButtonAndDropDown);}
+    private void clicknflButtonAndDropDown(){clickJScript(nflButtonAndDropDown);}
     private void clickfootballGameButton(){clickJScript(footballGameButton);}
     private void scrollJS(int i) {
     }
@@ -166,6 +204,9 @@ public class NFL extends BaseClass {
     private void clickiframePauseButton(){clickJScript(iframePauseButton);}
     private void clickiframeQuitVideobutton(){clickJScript(iframeQuitVideobutton);}
     private void clicknflHomePageScheduleButton(){clickJScript(nflHomePageScheduleButton);}
+    private void clicknflHomePageStandingsPage(){clickJScript(nflHomePageStandingsPage);}
+    private void clicknflHomePageTeamsPage(){clickJScript(nflHomePageTeamsPage);}
+    private void clicknflHomeStatsPage(){clickJScript(nflHomeStatsPage);}
 
 
 

@@ -3,6 +3,7 @@ package testPom;
 import base.BaseClass;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import testBase.NFL;
 
 public class TestNFL extends BaseClass {
@@ -11,7 +12,6 @@ public class TestNFL extends BaseClass {
     @Test(description = "TC001", enabled = false)
     public void nflPage(){
         nfl = new NFL();
-        mouseHover(nfl.nflButtonAndDropDown);
         nfl.nflHomePage();
         String actualText = nfl.nflHomPageTitle.getText();
         String expectedText = "logo-sport icon-moon-arena-text-nfl";
@@ -85,6 +85,30 @@ public class TestNFL extends BaseClass {
         nfl.nflSchedulePage();
         String actualText = nfl.nflSchedulePageTitle.getText();
         String expectedText = "NFL Schedule - Week 5";
+        Assert.assertEquals(actualText,expectedText);
+    }
+    @Test(description = "TC014",enabled = false)
+    public void nflStandingsPage(){
+        nfl = new NFL();
+        nfl.nflStandingsPage();
+        String actualText = nfl.nflStandingPageTitle.getText();
+        String expectedText = "NFL Standings";
+        Assert.assertEquals(actualText,expectedText);
+    }
+    @Test(description = "TC015", enabled = false)
+    public void nflTeamsPage(){
+        nfl = new NFL();
+        nfl.nflTeamsPage();
+        String actualText = nfl.nflTeamsPageTitle.getText();
+        String expectedText = "NFL Teams";
+        Assert.assertEquals(actualText,expectedText);
+    }
+    @Test(description = "TC016", enabled = false)
+    public void nflStatsPage(){
+        nfl = new NFL();
+        nfl.nflStatsPage();
+        String actualText = nfl.nflStatsPageTitle.getText();
+        String expectedText = "NFL Leaders";
         Assert.assertEquals(actualText,expectedText);
     }
 
