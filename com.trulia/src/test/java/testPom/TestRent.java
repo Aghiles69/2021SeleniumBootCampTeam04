@@ -45,10 +45,35 @@ public class TestRent extends BaseClass {
         String expectedText = "Canada, KY Homes For Sale & Real Estate";
         Assert.assertEquals(actualText,expectedText);
     }
-    @Test(description = "TC006", enabled = true)
+    @Test(description = "TC006", enabled = false)
     public void doSomethingIframeWindow(){
         rent = new Rent();
         rent.doSomethingIframeWindow();
+    }
+    @Test(description = "TC007", enabled = false)
+    public void postARentalPropertyWithAddress(){
+        rent = new Rent();
+        rent.postARentalPropertyWithAddress("3115 greenpoint ave");
+    }
+    @Test(description = "TC008", enabled = false)
+    public void postARentalPropertyWithoutData(){
+        rent = new Rent();
+        rent.postARentalPropertyWithoutData();
+    }
+    @Test(description = "TC009", enabled = false)
+    public void postARentalPropertywithOnlyCity(){
+        rent = new Rent();
+        rent.postARentalPropertywithOnlyCity("hicksville");
+    }
+    @Test(description = "TC010", enabled = false)
+    public void postARentalPropertywithOnlyCountry(){
+        rent = new Rent();
+        rent.postARentalPropertywithOnlyCountry("USA");
+    }
+    @Test(description = "TC011", enabled = false)
+    public void postARentalPropertywithInvalidData(){
+        rent = new Rent();
+        rent.postARentalPropertywithInvalidData("123asd");
     }
 
 

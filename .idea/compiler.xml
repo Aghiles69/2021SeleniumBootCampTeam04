@@ -11,6 +11,7 @@
         <module name="com.Overstock" />
         <module name="com.bankofamerica" />
         <module name="com.mercedesbenzusa" />
+        <module name="com.airbnb" />
         <module name="com.expedia" />
         <module name="com.cbssports" />
         <module name="com.atandt" />

@@ -32,6 +32,15 @@ public class Rent extends BaseClass {
     @FindBy(xpath = "//*[@id=\"main-content\"]/div[2]/section/div/div[1]/div/div/div[12]/div[2]/div/div/button[1]")
     public WebElement iframeWindowZoomButton;
 
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/header/nav/ul/li[2]/ul/li[6]/a/div")
+    public WebElement postARentingPropertyButton;
+
+    @FindBy(xpath = "//*[@id=\"post-rental-address-search\"]")
+    public WebElement postRentingSearchPropertyBox;
+
+    @FindBy(xpath = "//*[@id=\"main-content\"]/div[2]/div[1]/div/div[1]/div/div/div[3]/a")
+    public WebElement postRentalPropertySearchButton;
+
     public void rentPage(){
         clickrentDropDownAndButton();
     }
@@ -62,7 +71,35 @@ public class Rent extends BaseClass {
         driver.switchTo().frame(iframWindowRentPage);
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         clickiframeWindowZoomButton();
-
+    }
+    public void postARentalPropertyWithAddress(String address){
+        mouseHover(rentDropDownAndButton);
+        clickpostARentingPropertyButton();
+        sendKeysTopostRentingSearchPropertyBox(address);
+        clickpostRentalPropertySearchButton();
+    }
+    public void postARentalPropertyWithoutData(){
+        mouseHover(rentDropDownAndButton);
+        clickpostARentingPropertyButton();
+        clickpostRentalPropertySearchButton();
+    }
+    public void postARentalPropertywithOnlyCity(String city){
+        mouseHover(rentDropDownAndButton);
+        clickpostARentingPropertyButton();
+        sendKeysTopostRentingSearchPropertyBox(city);
+        clickpostRentalPropertySearchButton();
+    }
+    public void postARentalPropertywithOnlyCountry(String country){
+        mouseHover(rentDropDownAndButton);
+        clickpostARentingPropertyButton();
+        sendKeysTopostRentingSearchPropertyBox(country);
+        clickpostRentalPropertySearchButton();
+    }
+    public void postARentalPropertywithInvalidData(String data){
+        mouseHover(rentDropDownAndButton);
+        clickpostARentingPropertyButton();
+        sendKeysTopostRentingSearchPropertyBox(data);
+        clickpostRentalPropertySearchButton();
     }
     private void clickrentDropDownAndButton(){clickJScript(rentDropDownAndButton);}
     private void sendKeysTorentSearchInputBox(String state) {
@@ -70,6 +107,12 @@ public class Rent extends BaseClass {
     }
     private void clickrentSearchBoxSearchButton(){clickJScript(rentSearchBoxSearchButton);}
     private void clickiframeWindowZoomButton(){clickJScript(iframeWindowZoomButton);}
+    private void clickpostARentingPropertyButton(){clickJScript(postARentingPropertyButton);}
+    private void sendKeysTopostRentingSearchPropertyBox(String address) {
+        sendKeysToElement(postRentingSearchPropertyBox, address);}
+    private void clickpostRentalPropertySearchButton(){clickJScript(postRentalPropertySearchButton);}
+
+    }
 
 
-}
+

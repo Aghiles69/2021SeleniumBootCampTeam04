@@ -25,6 +25,7 @@
         <module>com.atandt</module>
         <module>base</module>
         <module>com.verizon</module>
+        <module>com.airbnb</module>
     </modules>
 
     <properties>

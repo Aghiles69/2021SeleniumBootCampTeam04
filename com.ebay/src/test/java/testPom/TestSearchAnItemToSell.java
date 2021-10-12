@@ -48,20 +48,17 @@ public class TestSearchAnItemToSell extends TestBase {
     public void testISBN(){
         searchBrandInInputBOx = getSearchAnItemToSell();
         searchBrandInInputBOx.search("9780810917880");
-//        String actualValue = testISBN.get
-//        String expectedValue = "Brand : Gucci";
-//        Assert.assertEquals(actualValue, expectedValue, "Failed testSearchBrand()");
+    }
+    @Test(description = "TC008", enabled = false)
+    public void testNegativeData(){
+        searchBrandInInputBOx = getSearchAnItemToSell();
+        searchBrandInInputBOx.search("-97808109178880");
 
-//        String expTitle = "playstation 5 in Video Games and Consoles | eBay";
+    }
+    @Test(description = "TC009", enabled = false)
+    public void testNoData(){
+        searchBrandInInputBOx = getSearchAnItemToSell();
+        searchBrandInInputBOx.search("");
 
-//        waitForElementToBeVisible(homepage.searchResultPageElement);
-//        scrollJS(1000);
-//        Thread.sleep(1000);
-//        scrollJS(-500);
-//        Thread.sleep(1000);
-//        scrollJS(6000);
-//        Thread.sleep(1000);
-
-//        Assert.assertEquals(driver.getTitle(), expTitle);
     }
 }
